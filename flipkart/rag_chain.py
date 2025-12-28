@@ -25,7 +25,7 @@ class RAGchainBuilder:
         return self.history_store[session_id]
 
     def build_chain(self):
-        retriever = self.vector_store.as_retriever(search_kwargs={"k": 3})
+        retriever = self.vector_store.as_retriever(search_kwargs={"k": 5})
 
        
 
@@ -33,7 +33,7 @@ class RAGchainBuilder:
             
                 context=itemgetter("question") | retriever
                 
-        )
+        ) ##we have use assign as it wills tore questions too along with the documnets and pass it to llm 
             | self.prompt
             | self.llm
             | StrOutputParser()
