@@ -2,3 +2,4 @@ env/
 .env
 data/
 flipkartrecommender.egg-info/
+logs/
